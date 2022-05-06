@@ -1,0 +1,38 @@
+﻿@model IEnumerable<About>
+@{
+    ViewData["Title"] = "Hakkımızda";
+}
+
+<!--/banner-->
+<div class="banner-inner">
+</div>
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a asp-action="Index" asp-controller="Default">Ana Sayfa</a>
+    </li>
+    <li class="breadcrumb-item">Hakkımızda</li>
+</ol>
+<!--//banner-->
+<!--/main-->
+<h2 class="text-center m-5">Hakkımızda</h2>
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                @foreach (var item in Model)
+                {
+                    <img src="@item.Image" style="width:350px; height:350px;" />
+                }
+            </div>
+            <div class="col-md-8">
+                @foreach (var item in Model)
+                {
+                    <h3 class="text-center mt-3">@item.Title</h3>
+                    <br /><br /><br />
+                    <p>@item.Description</p>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<!--//main-->
