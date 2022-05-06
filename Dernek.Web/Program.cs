@@ -15,8 +15,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 builder.Services.AddScoped(typeof(IService<>), typeof(Service<>));
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-builder.Services.AddScoped<IBlogRepository, BlogRepository>();
 builder.Services.AddScoped<IBlogService, BlogService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 
 builder.Services.AddDbContext<AppDbContext>(
