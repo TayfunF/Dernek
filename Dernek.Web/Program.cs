@@ -4,6 +4,7 @@ using Dernek.Core.UnitOfWork;
 using Dernek.Repository;
 using Dernek.Repository.Repositories;
 using Dernek.Repository.UnitOfWorks;
+using Dernek.Service.Mapping;
 using Dernek.Service.Services;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,6 +16,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 builder.Services.AddScoped(typeof(IService<>), typeof(Service<>));
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped(typeof(MapProfile));
+
 
 builder.Services.AddDbContext<AppDbContext>(
             options => options.UseSqlServer("name=ConnectionStrings:DefaultConnection").UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking));
