@@ -59,7 +59,7 @@
                     <div class="col-md-6 card">
                         @foreach (var item in Model)
                         {
-                            <a asp-action="Index" asp-controller="Categories" asp-route-id="@item.CategoryId">
+                            <a asp-action="Details" asp-controller="Default" asp-route-id="@item.CategoryId">
                                 <img src="@item.Image" class="card-img-top img-fluid" alt="Resim Yok">
                             </a>
                             <div class="card-body">
@@ -82,10 +82,10 @@
 
                                 </ul>
                                 <h5 class="card-title ">
-                                    <a asp-action="Index" asp-controller="Categories" asp-route-id="@item.CategoryId">@item.Title</a>
+                                    <a asp-action="Details" asp-controller="Default" asp-route-id="@item.CategoryId">@item.Title</a>
                                 </h5>
                                 <p class="card-text mb-3">@item.Content</p>
-                                <a asp-action="Index" asp-controller="Categories" asp-route-id="@item.CategoryId" class="btn btn-primary read-m">Detaylar</a>
+                                <a asp-action="Details" asp-controller="Default" asp-route-id="@item.CategoryId" class="btn btn-primary read-m">Detaylar</a>
                             </div>
                         }
                     </div>
