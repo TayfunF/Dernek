@@ -19,6 +19,7 @@ builder.Services.AddScoped<IBlogRepository, BlogRepository>();
 builder.Services.AddScoped<IBlogService, BlogService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IAboutService, AboutService>();
+builder.Services.AddScoped<IDirectorService, DirectorService>();
 
 
 builder.Services.AddDbContext<AppDbContext>(
