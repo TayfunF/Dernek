@@ -12,8 +12,12 @@ namespace Dernek.Service.Services
 {
     public class BlogService : Service<Blog>, IBlogService
     {
-        public BlogService(IGenericRepository<Blog> repository, IUnitOfWork unitOfWork) : base(repository, unitOfWork)
+        private readonly IBlogRepository _blogRepository;
+
+        public BlogService(IGenericRepository<Blog> repository, IUnitOfWork unitOfWork, IBlogRepository blogRepository) : base(repository, unitOfWork)
         {
+            _blogRepository = blogRepository;
         }
+
     }
 }

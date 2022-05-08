@@ -66,7 +66,7 @@
                                 <ul class="blog-icons my-4">
                                     <li>
                                         <a href="#">
-                                            <i class="far fa-calendar-alt"></i> @item.CreatedDate.ToString("MM/dd/yyy")
+                                            <i class="far fa-calendar-alt"></i> @item.CreatedDate.ToString("MM/dd/yyyy")
                                         </a>
                                     </li>
                                     <li class="mx-2">
@@ -95,123 +95,29 @@
             <!--right-->
             <aside class="col-lg-4 agileits-w3ls-right-blog-con text-left">
                 <div class="tech-btm">
-                    <h4>Recent Posts</h4>
+                    <h4>Güncel Yazılar</h4>
+                    @foreach (var item in Model)
+                    {
+                        <div class="blog-grids row mb-3">
+                            <div class="col-md-5 blog-grid-left">
+                                <a asp-action="Details" asp-controller="Default" asp-route-id="@item.CategoryId">
+                                    <img src="@item.ThumbnailImage" class="img-fluid" alt="">
+                                </a>
+                            </div>
+                            <div class="col-md-7 blog-grid-right">
 
-                    <div class="blog-grids row mb-3">
-                        <div class="col-md-5 blog-grid-left">
-                            <a href="single.html">
-                                <img src="~/web/images/5.jpg" class="img-fluid" alt="">
-                            </a>
-                        </div>
-                        <div class="col-md-7 blog-grid-right">
-
-                            <h5>
-                                <a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
-                            </h5>
-                            <div class="sub-meta">
-                                <span>
-                                    <i class="far fa-clock"></i> 20 Jan, 2018
-                                </span>
+                                <h5>
+                                    <a asp-action="Details" asp-controller="Default" asp-route-id="@item.CategoryId">@item.Title</a>
+                                </h5>
+                                <div class="sub-meta">
+                                    <span>
+                                        <i class="far fa-clock"></i> @item.CreatedDate.ToString("MM/dd/yyyy")
+                                    </span>
+                                </div>
                             </div>
                         </div>
-
-                    </div>
-                    <div class="blog-grids row mb-3">
-                        <div class="col-md-5 blog-grid-left">
-                            <a href="single.html">
-                                <img src="~/web/images/6.jpg" class="img-fluid" alt="">
-                            </a>
-                        </div>
-                        <div class="col-md-7 blog-grid-right">
-
-                            <h5>
-                                <a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
-                            </h5>
-                            <div class="sub-meta">
-                                <span>
-                                    <i class="far fa-clock"></i> 20 Jan, 2018
-                                </span>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="blog-grids row mb-3">
-                        <div class="col-md-5 blog-grid-left">
-                            <a href="single.html">
-                                <img src="~/web/images/7.jpg" class="img-fluid" alt="">
-                            </a>
-                        </div>
-                        <div class="col-md-7 blog-grid-right">
-                            <h5>
-                                <a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
-                            </h5>
-                            <div class="sub-meta">
-                                <span>
-                                    <i class="far fa-clock"></i> 20 Feb, 2018
-                                </span>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="blog-grids row mb-3">
-                        <div class="col-md-5 blog-grid-left">
-                            <a href="single.html">
-                                <img src="~/web/images/8.jpg" class="img-fluid" alt="">
-                            </a>
-                        </div>
-                        <div class="col-md-7 blog-grid-right">
-
-                            <h5>
-                                <a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
-                            </h5>
-                            <div class="sub-meta">
-                                <span>
-                                    <i class="far fa-clock"></i> 20 Jan, 2018
-                                </span>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="blog-grids row mb-3">
-                        <div class="col-md-5 blog-grid-left">
-                            <a href="single.html">
-                                <img src="~/web/images/4.jpg" class="img-fluid" alt="">
-                            </a>
-                        </div>
-                        <div class="col-md-7 blog-grid-right">
-
-                            <h5>
-                                <a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
-                            </h5>
-                            <div class="sub-meta">
-                                <span>
-                                    <i class="far fa-clock"></i> 20 Jan, 2018
-                                </span>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="blog-grids row mb-3">
-                        <div class="col-md-5 blog-grid-left">
-                            <a href="single.html">
-                                <img src="~/web/images/6.jpg" class="img-fluid" alt="">
-                            </a>
-                        </div>
-                        <div class="col-md-7 blog-grid-right">
-                            <h5>
-                                <a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
-                            </h5>
-                            <div class="sub-meta">
-                                <span>
-                                    <i class="far fa-clock"></i> 20 Feb, 2018
-                                </span>
-                            </div>
-                        </div>
-
-                    </div>
-
+                    }
                 </div>
-
             </aside>
             <!--//right-->
         </div>
