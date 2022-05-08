@@ -6,12 +6,10 @@ namespace Dernek.Web.Controllers
     public class BlogsController : Controller
     {
         private readonly IBlogService _blogService;
-        private readonly ICarouselService _carouselService;
 
-        public BlogsController(IBlogService blogService, ICarouselService carouselService)
+        public BlogsController(IBlogService blogService)
         {
             _blogService = blogService;
-            _carouselService = carouselService;
         }
 
         public async Task<IActionResult> Index()
