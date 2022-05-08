@@ -17,5 +17,6 @@ namespace Dernek.Repository
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Carousel> Carousels { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Director> Directors { get; set; }
     }
 }
