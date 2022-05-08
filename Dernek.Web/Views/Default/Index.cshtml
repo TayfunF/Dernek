@@ -4,9 +4,12 @@
     ViewData["Title"] = "Ana Sayfa";
 }
 
+@{
+    int i = 0;
+}
 
 <!--/banner-->
-<!--<div class="banner">
+<div class="banner">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -15,28 +18,19 @@
             <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
         </ol>
         <div class="carousel-inner" role="listbox">
-            <div class="carousel-item active">
-                <div class="carousel-caption">
-                    <h3>
-                        Create the lifestyle
-                        <span>you desire</span>
-                    </h3>
-                    <div class="read">
-                        <a asp-action="#" class="btn btn-primary read-m">Şimdi Keşfet !</a>
+            @foreach (var item3 in ViewBag.GetCarouselList)
+            {
+                i++;
+                var active = i == 1 ? "active" : "";
+                <div class="carousel-item @active">
+                    <div class="carousel-caption">
+                        <h3>@item3.Title @*<span>you desire</span>*@</h3>
+                        <div class="read">
+                            <a asp-action="Index" asp-controller="About" class="btn btn-primary read-m">Bilgi Al</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="carousel-item item2">
-                <div class="carousel-caption">
-                    <h3>
-                        Engaging Purposeful
-                        <span>and Creative</span>
-                    </h3>
-                    <div class="read">
-                        <a href="single.html" class="btn btn-primary read-m">Read More</a>
-                    </div>
-                </div>
-            </div>
+            }
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -47,7 +41,7 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
-</div>-->
+</div>
 <!--/model-->
 <!--//banner-->
 <!---->
