@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<Blog>
+
 @{
     ViewData["Title"] = "Ana Sayfa";
 }
@@ -56,9 +57,9 @@
             <!--left-->
             <div class="col-lg-8 left-blog-info-w3layouts-agileits text-left">
                 <div class="row mb-4">
-                    <div class="col-md-6 card">
-                        @foreach (var item in Model)
-                        {
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-md-6 card">
                             <a asp-action="Details" asp-controller="Default" asp-route-id="@item.CategoryId">
                                 <img src="@item.Image" class="card-img-top img-fluid" alt="Resim Yok">
                             </a>
@@ -84,11 +85,12 @@
                                 <h5 class="card-title ">
                                     <a asp-action="Details" asp-controller="Default" asp-route-id="@item.CategoryId">@item.Title</a>
                                 </h5>
-                                <p class="card-text mb-3">@item.Content</p>
+                                <p class="card-text mb-3">@item.Content.Substring(0,item.Content.Substring(0,50).LastIndexOf(" "))...</p>
                                 <a asp-action="Details" asp-controller="Default" asp-route-id="@item.CategoryId" class="btn btn-primary read-m">Detaylar</a>
                             </div>
-                        }
-                    </div>
+
+                        </div>
+                    }
                 </div>
             </div>
             <!--//left-->
@@ -96,22 +98,21 @@
             <aside class="col-lg-4 agileits-w3ls-right-blog-con text-left">
                 <div class="tech-btm">
                     <h4>Güncel Yazılar</h4>
-                    @foreach (var item in Model)
+                    @foreach (var item2 in ViewBag.Get3Blog)
                     {
                         <div class="blog-grids row mb-3">
                             <div class="col-md-5 blog-grid-left">
-                                <a asp-action="Details" asp-controller="Default" asp-route-id="@item.CategoryId">
-                                    <img src="@item.ThumbnailImage" class="img-fluid" alt="">
+                                <a asp-action="Details" asp-controller="Default" asp-route-id="@item2.CategoryId">
+                                    <img src="@item2.ThumbnailImage" class="img-fluid" alt="">
                                 </a>
                             </div>
                             <div class="col-md-7 blog-grid-right">
-
                                 <h5>
-                                    <a asp-action="Details" asp-controller="Default" asp-route-id="@item.CategoryId">@item.Title</a>
+                                    <a asp-action="Details" asp-controller="Default" asp-route-id="@item2.CategoryId">@item2.Title</a>
                                 </h5>
                                 <div class="sub-meta">
                                     <span>
-                                        <i class="far fa-clock"></i> @item.CreatedDate.ToString("MM/dd/yyyy")
+                                        <i class="far fa-clock"></i> @item2.CreatedDate.ToString("MM/dd/yyyy")
                                     </span>
                                 </div>
                             </div>

@@ -9,5 +9,6 @@ namespace Dernek.Core.Services
 {
     public interface IBlogService : IService<Blog>
     {
+        Task<IEnumerable<Blog>> TGetLast3BlogAsync();
     }
 }

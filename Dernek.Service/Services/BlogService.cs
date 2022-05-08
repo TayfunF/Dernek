@@ -19,5 +19,9 @@ namespace Dernek.Service.Services
             _blogRepository = blogRepository;
         }
 
+        public Task<IEnumerable<Blog>> TGetLast3BlogAsync()
+        {
+            return _blogRepository.GetLast3BlogAsync();
+        }
     }
 }

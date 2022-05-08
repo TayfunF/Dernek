@@ -17,6 +17,8 @@ namespace Dernek.Web.Controllers
         {
             var GetBlogList = await _blogService.TGetAllAsync();
 
+            ViewBag.Get3Blog = await _blogService.TGetLast3BlogAsync();
+
 
             return View(GetBlogList);
         }
