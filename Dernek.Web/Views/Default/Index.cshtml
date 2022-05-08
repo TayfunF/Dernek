@@ -1,7 +1,6 @@
-﻿@model IEnumerable<Blog>
-
+﻿@model IEnumerable<Carousel>
 @{
-    ViewData["Title"] = "Ana Sayfa";
+    ViewData["Title"] = "Index";
 }
 
 @{
@@ -18,13 +17,13 @@
             <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
         </ol>
         <div class="carousel-inner" role="listbox">
-            @foreach (var item3 in ViewBag.GetCarouselList)
+            @foreach (var item in Model)
             {
                 i++;
                 var active = i == 1 ? "active" : "";
                 <div class="carousel-item @active">
                     <div class="carousel-caption">
-                        <h3>@item3.Title @*<span>you desire</span>*@</h3>
+                        <h3>@item.Title @*<span>you desire</span>*@</h3>
                         <div class="read">
                             <a asp-action="Index" asp-controller="About" class="btn btn-primary read-m">Bilgi Al</a>
                         </div>
@@ -42,80 +41,4 @@
         </a>
     </div>
 </div>
-<!--/model-->
 <!--//banner-->
-<!---->
-<section class="main-content-w3layouts-agileits">
-    <div class="container">
-        <div class="row">
-            <!--left-->
-            <div class="col-lg-8 left-blog-info-w3layouts-agileits text-left">
-                <div class="row mb-4">
-                    @foreach (var item in Model)
-                    {
-                        <div class="col-md-6 card">
-                            <a asp-action="Details" asp-controller="Default" asp-route-id="@item.CategoryId">
-                                <img src="@item.Image" class="card-img-top img-fluid" alt="Resim Yok">
-                            </a>
-                            <div class="card-body">
-                                <ul class="blog-icons my-4">
-                                    <li>
-                                        <a href="#">
-                                            <i class="far fa-calendar-alt"></i> @item.CreatedDate.ToString("dd MMM yyyy")
-                                        </a>
-                                    </li>
-                                    <li class="mx-2">
-                                        <a href="#">
-                                            <i class="far fa-comment"></i> 21
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fas fa-eye"></i> 2000
-                                        </a>
-                                    </li>
-
-                                </ul>
-                                <h5 class="card-title ">
-                                    <a asp-action="Details" asp-controller="Default" asp-route-id="@item.CategoryId">@item.Title</a>
-                                </h5>
-                                <p class="card-text mb-3">@item.Content.Substring(0,item.Content.Substring(0,50).LastIndexOf(" "))...</p>
-                                <a asp-action="Details" asp-controller="Default" asp-route-id="@item.CategoryId" class="btn btn-primary read-m">Detaylar</a>
-                            </div>
-
-                        </div>
-                    }
-                </div>
-            </div>
-            <!--//left-->
-            <!--right-->
-            <aside class="col-lg-4 agileits-w3ls-right-blog-con text-left">
-                <div class="tech-btm">
-                    <h4>En Güncel Yazı</h4>
-                    @foreach (var item2 in ViewBag.GetLastBlog)
-                    {
-                        <div class="blog-grids row mb-3">
-                            <div class="col-md-5 blog-grid-left">
-                                <a asp-action="Details" asp-controller="Default" asp-route-id="@item2.CategoryId">
-                                    <img src="@item2.ThumbnailImage" class="img-fluid" alt="">
-                                </a>
-                            </div>
-                            <div class="col-md-7 blog-grid-right">
-                                <h5>
-                                    <a asp-action="Details" asp-controller="Default" asp-route-id="@item2.CategoryId">@item2.Title</a>
-                                </h5>
-                                <div class="sub-meta">
-                                    <span>
-                                        <i class="far fa-clock"></i> @item2.CreatedDate.ToString("dd MMM yyyy")
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    }
-                </div>
-            </aside>
-            <!--//right-->
-        </div>
-    </div>
-</section>
-<!--//main-->
