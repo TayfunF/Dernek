@@ -17,10 +17,31 @@ namespace Dernek.Web.Controllers
         {
             var GetBlogList = await _blogService.TGetAllAsync();
 
-            ViewBag.Get3Blog = await _blogService.TGetLast3BlogAsync();
+            ViewBag.GetLastBlog = await _blogService.TGetLastBlogAsync();
+
+            ViewBag.Get3Blogs = await _blogService.TGetLast3BlogsAsync();
 
 
             return View(GetBlogList);
+        }
+
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            int Id = Convert.ToInt32(id);
+
+            var BlogDetails = await _blogService.TGetByIdAsync(Id);
+
+            if (BlogDetails == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            return View(BlogDetails);
         }
     }
 }

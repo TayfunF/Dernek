@@ -14,8 +14,12 @@ namespace Dernek.Repository.Repositories
         public BlogRepository(AppDbContext context) : base(context)
         {
         }
+        public async Task<IEnumerable<Blog>> GetLastBlogAsync()
+        {
+            return await _context.Blogs.OrderByDescending(x => x.Id).Take(1).ToListAsync();
+        }
 
-        public async Task<IEnumerable<Blog>> GetLast3BlogAsync()
+        public async Task<IEnumerable<Blog>> GetLast3BlogsAsync()
         {
             return await _context.Blogs.OrderByDescending(x => x.Id).Take(3).ToListAsync();
         }
